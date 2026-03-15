@@ -1,6 +1,6 @@
 ---
 name: stock-researcher
-description: Warren Buffett-style stock research. Drills top-down: macro → sector → company overview → competitive position → fundamentals → news → verdict with buy/hold/sell recommendation. Use when the user provides a stock ticker (or multiple tickers), optionally with share count and average cost. Also handles image input — parse the image to extract ticker, shares, cost, etc.
+description: "Warren Buffett-style stock research. Drills top-down: macro → sector → company overview → competitive position → fundamentals → news → verdict with buy/hold/sell recommendation. Use when the user provides a stock ticker (or multiple tickers), optionally with share count and average cost. Also handles image input — parse the image to extract ticker, shares, cost, etc."
 ---
 
 # Stock Researcher

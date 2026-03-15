@@ -1,6 +1,6 @@
 ---
 name: git-clone
-description: Clone a GitHub repo, a specific folder, or a specific file into outputs/git-clone/. Use when the user provides a GitHub URL and wants to clone it or a subfolder/file from it.
+description: "Clone a GitHub repo, a specific folder, or a specific file into outputs/git-clone/. Use when the user provides a GitHub URL and wants to clone it or a subfolder/file from it."
 ---
 
 # Git Clone Skill
