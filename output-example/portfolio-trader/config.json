@@ -1,0 +1,45 @@
+{
+  "account": {
+    "starting_cash": 1000.0,
+    "target": 3000.0,
+    "currency": "USD",
+    "timeframe_start": "2026-03-15",
+    "timeframe_end": "2026-04-15"
+  },
+  "snapshot": {
+    "current_cash": 1000.0,
+    "portfolio_value": 1000.0,
+    "open_positions": 0,
+    "last_synced": null
+  },
+  "strategy": {
+    "max_positions": 4,
+    "max_position_pct": 0.30,
+    "min_position_pct": 0.10,
+    "stop_loss_pct": 0.10,
+    "take_profit_pct": 0.20,
+    "min_volume_surge": 2.0,
+    "min_price_move_pct": 3.0,
+    "max_price_move_pct": 15.0,
+    "min_score": 60,
+    "max_rsi_entry": 72,
+    "earnings_avoidance_days": 10,
+    "time_exit_days": 14,
+    "min_cash_reserve_pct": 0.15,
+    "max_trades_per_session": 5,
+    "focus_market_caps": ["small", "mid", "large"],
+    "scan_universe": {
+      "ai_semis":       ["NVDA", "AMD", "IONQ"],
+      "space_defense":  ["RKLB"],
+      "ai_platform":    ["PLTR"],
+      "fintech":        ["SOFI", "UPST", "HOOD"],
+      "crypto_equities":["COIN", "MSTR", "MARA", "RIOT"],
+      "crypto_etfs":    ["IBIT", "FBTC"],
+      "cybersecurity":  ["CRWD", "NET", "SMCI"],
+      "consumer":       ["DKNG"],
+      "crypto_spot":    ["BTC-USD", "ETH-USD"]
+    },
+    "last_adjusted": "2026-03-15",
+    "adjustment_notes": "Initial parameters — momentum swing trading strategy"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "meta": {
+    "created": "2026-03-15",
+    "last_updated": "2026-03-16T02:49:54Z",
+    "last_learn_run": null,
+    "version": "1.0"
+  },
+  "cash": 1000.0,
+  "positions": [],
+  "trades": [],
+  "watchlist": [],
+  "lessons": [],
+  "performance": {
+    "total_trades": 0,
+    "winning_trades": 0,
+    "losing_trades": 0,
+    "win_rate_pct": null,
+    "avg_win_pct": null,
+    "avg_loss_pct": null,
+    "largest_win_pct": null,
+    "largest_loss_pct": null,
+    "total_realized_pnl": 0,
+    "portfolio_value": 1000.0,
+    "portfolio_value_vs_start_pct": 0.0,
+    "avg_hold_days_winners": null,
+    "avg_hold_days_losers": null
+  }
+}
