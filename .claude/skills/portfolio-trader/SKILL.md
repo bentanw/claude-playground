@@ -37,6 +37,14 @@ Parse any argument the user passed after `/portfolio-trader`:
 venv/bin/python3 .claude/skills/portfolio-trader/scripts/portfolio.py --update-prices
 ```
 
+After running, **read all files in `{PORTFOLIO_DIR}/notes/`**:
+- `notes/lessons.md` — past lessons learned, apply to today's decisions
+- `notes/strategy.md` — evolving trading philosophy, account context
+- `notes/observations.md` — recent market notes, sector trends
+- `notes/watchlist.md` — manually tracked tickers (add these to the discovery scan)
+
+Internalize this context before generating any recommendations. If notes contradict a borderline signal, notes win.
+
 Parse the JSON output carefully. Key fields:
 - `account.cash` — available cash
 - `positions[]` — open positions with live P&L, stop_loss, take_profit
@@ -168,7 +176,7 @@ If `actual_cost < 20`, skip the trade (too small to matter).
 Display the full session report in this exact format:
 
 ```
-## Portfolio Trader — [Date] [Approx Time]
+## Portfolio Trader — [account.label] — [Date] [Approx Time]
 **Market:** [OPEN/CLOSED]
 
 ---
@@ -224,9 +232,40 @@ Display the full session report in this exact format:
 
 ---
 
-### STEP 6.5 — Log Session (automatic, no confirmation needed)
+### STEP 6.5 — Update Notes (automatic, no confirmation needed)
 
-After presenting the report, always save it to the daily log. Write the full session report markdown to a temp file, then run:
+After presenting the report, **always update the notes files**. This is how the system gets smarter over time — every session must contribute something.
+
+**`notes/observations.md`** — append an entry for today's session:
+- Current VIX level and what it implies
+- Any tickers showing unusual behavior (gap-ups, volume spikes, news catalysts)
+- Market conditions (sector rotation, broad trend, macro backdrop)
+- Anything that influenced or nearly influenced a decision today
+- Format: `**[YYYY-MM-DD HH:MM] — [observation]**`
+
+**`notes/strategy.md`** — update if anything changed:
+- Move something to "What's Working" or "What to Avoid" based on today's data
+- Refine sector notes if you saw new behavior
+- Update account context if milestones are hit (e.g., crossed $2,000)
+- Only update if there's something genuinely new — don't pad it
+
+**`notes/lessons.md`** — append manually if you spotted a pattern that the learning loop wouldn't catch yet (fewer than 3 closed trades):
+- Early signals that a setup failed immediately after entry
+- A ticker that kept showing up but never triggered — note why
+- Anything qualitative the numbers can't capture
+
+**`notes/watchlist.md`** — update if candidates showed promise but didn't qualify:
+- Add tickers that scored 50–59 with a note on what to watch for
+- Remove tickers that have gone stale or broken down
+- Format: `**TICKER** — reason / what to watch for / date added`
+
+Be honest and specific. Vague notes are useless. A note like "BTC volume low on weekends — wait for Tuesday+" is worth 10x more than "crypto was slow."
+
+---
+
+### STEP 6.6 — Log Session (automatic, no confirmation needed)
+
+After updating notes, save the session to the daily log. Write the full session report markdown to a temp file, then run:
 
 ```bash
 # Write session content to temp file first, then:

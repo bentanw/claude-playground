@@ -328,6 +328,17 @@ def apply_lessons(data: dict, lessons_file: str) -> dict:
         config["strategy"]["adjustment_notes"] = payload.get("adjustment_notes", "Updated by learning loop")
         save_config(config)
 
+    # Append accepted lessons to notes/lessons.md for persistent context
+    if new_lessons:
+        notes_path = os.path.join(_DIR, "notes", "lessons.md")
+        if os.path.exists(notes_path):
+            with open(notes_path, "a") as f:
+                for lesson in new_lessons:
+                    priority = lesson.get("priority", "MEDIUM")
+                    source = lesson.get("source_type", "")
+                    text = lesson.get("lesson", "")
+                    f.write(f"\n## [{today}] [{priority}] {source}\n{text}\n")
+
     return data
 
 
